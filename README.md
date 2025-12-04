@@ -13,6 +13,19 @@ with app.app_context():
 exit()
 ```
 
+#master key2
+```
+from app import app, db, ActivationCode
+
+with app.app_context():
+    db.create_all()
+    # Create a Master Admin Key
+    master_key = ActivationCode(code="ADMIN-START-KEY", days_valid=9999)
+    db.session.add(master_key)
+    db.session.commit()
+    print("MASTER KEY CREATED: ADMIN-START-KEY")
+```
+
 # Auth-Page-
 
 Creds to the server 
