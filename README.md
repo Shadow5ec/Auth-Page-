@@ -1,3 +1,18 @@
+# admin code 
+```
+from app import app, db, ActivationCode
+
+with app.app_context():
+    db.create_all()
+    # Create the Master Key
+    key = ActivationCode(code="ADMIN-KEY-1234", days_valid=3650)
+    db.session.add(key)
+    db.session.commit()
+    print("SUCCESS: Admin Key Created!")
+
+exit()
+```
+
 # Auth-Page-
 
 Creds to the server 
